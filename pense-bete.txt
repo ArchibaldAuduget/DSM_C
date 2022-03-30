@@ -1,0 +1,6 @@
+- Changer le mailer 'gmail' pour une mise en prod
+- mettre en url un lien pour contacter le support dans le email confirmation
+- mentions légales du footer email confirmation
+- ajuster les medias queries pour la case agree terms dans register
+- ajouter la fonctionalité mot de passe oublié
+- ajouter la fonctionalité se souvenir de moi

@@ -1,0 +1,26 @@
+h1 {
+    text-align: center;
+    margin: 2rem 0rem 2rem 0rem;
+    font-family: 'Lato', sans-serif;
+}
+
+.agree {
+    margin-top : 1rem;
+    text-align: center;
+}
+
+.agree a {
+    text-decoration: none;
+}
+
+.agree-check {
+    text-align: left;
+    margin-left: 45%;
+}
+
+.connexion-card {
+    background-color: rgba(206, 204, 204, 0.5);
+    padding: 6rem 4rem 6rem 4rem;
+    border-radius: 15px;
+    margin-top: 8%
+}
