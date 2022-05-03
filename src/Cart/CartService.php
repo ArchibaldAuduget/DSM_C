@@ -89,6 +89,11 @@ class CartService
         return $total;
     }
 
+    /**
+     * Undocumented function
+     *
+     * @return CartItem[]
+     */
     public function getDetailedCardItems(): array
     {
         $detailedCart = [];

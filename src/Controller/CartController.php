@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Cart\CartService;
+use App\Form\PurchaseType;
 use App\Repository\ProductRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -45,12 +46,15 @@ class CartController extends AbstractController
     #[Route('/cart', name: 'cart_show')]
     public function show()
     {
+        $form = $this->createForm(PurchaseType::class);
+
         $detailedCart = $this->cartService->getDetailedCardItems();
         $total = $this->cartService->getTotal();
 
         return $this->render('cart/index.html.twig', [
             'items' => $detailedCart,
-            'total' => $total
+            'total' => $total,
+            'formview' => $form->createView()
         ]);
     }
 

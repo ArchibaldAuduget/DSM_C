@@ -35,3 +35,8 @@
 .product-cart-btn {
     width: 100%;
 }
+
+.btn-cart {
+    float: right;
+    /* margin-bottom: 5rem; */
+}
