@@ -42,17 +42,25 @@
             </tfoot>
         </table>
         <hr>
-        <h2>Confirmez votre commande en remplissant ce formulaire</h2>
-        {{ form_start(formview, {'action' : path('purchase_confirm')}) }}
-        {{form_errors(formview)}}
 
-        {{form_row(formview.fullName, {'value': app.user.firstName ~ ' ' ~ app.user.lastName})}}
-        {{form_row(formview.address, {'value': app.user.address})}}
-        {{form_row(formview.postalCode, {'value': app.user.postalCode})}}
-        {{form_row(formview.city, {'value': app.user.city})}}
-        {{form_row(formview.carrier)}}
-            <button type="submit" class="btn btn-success">Confirmer la commande</button>
-        {{ form_end(formview) }}
+        {% if app.user %}
+            <h2>Confirmez votre commande en remplissant ce formulaire</h2>
+            {{ form_start(formview, {'action' : path('purchase_confirm')}) }}
+            {{form_errors(formview)}}
+
+            {{form_row(formview.fullName, {'value': app.user.firstName ~ ' ' ~ app.user.lastName})}}
+            {{form_row(formview.address, {'value': app.user.address})}}
+            {{form_row(formview.postalCode, {'value': app.user.postalCode})}}
+            {{form_row(formview.city, {'value': app.user.city})}}
+            {{form_row(formview.carrier)}}
+                <button type="submit" class="btn btn-success">Confirmer la commande</button>
+            {{ form_end(formview) }}
+
+        {% else %}
+            <h2>Vous devez être connecté pour confirmer votre commande</h2>
+            <a href="{{ path('app_login') }}" class="btn btn-success">Connexion</a> ou 
+            <a href="{{ path('app_register') }}" class="btn btn-success">Créer un compte</a>
+        {% endif %}
     {% else %}
         <h2>Le panier est vide !</h2>
     {% endif %}

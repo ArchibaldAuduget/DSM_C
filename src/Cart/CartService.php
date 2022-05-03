@@ -110,4 +110,9 @@ class CartService
 
         return $detailedCart;
     }
+
+    public function empty()
+    {
+        $this->saveCart([]);
+    }
 }
