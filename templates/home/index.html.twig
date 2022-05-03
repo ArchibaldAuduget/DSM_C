@@ -1,7 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
-<h1>Bienvenue sur Home</h1>
+<h1 class="mt-5 text-center">Bienvenue sur DS Music, le site des les musiciens passionnés !</h1>
+
+<div class="row mt-5">
+    <h3 class="mt-2 mb-2">Nos meilleures ventes :</h3>
+    {% set category = {'slug': 'bestsells'} %}
+    {% for p in products %}
+        {% include "shared/_productCard.html.twig" %}
+    {% endfor %}
+</div>
+
 {% endblock %}

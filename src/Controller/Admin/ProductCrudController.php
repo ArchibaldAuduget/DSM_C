@@ -31,7 +31,8 @@ class ProductCrudController extends AbstractCrudController
             BooleanField::new('inStock'),
             TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
             ImageField::new('picture')->setBasePath('/uploads/pictures/')->onlyOnIndex(),
-            AssociationField::new('category')
+            AssociationField::new('category'),
+            NumberField::new('nSell')->hideOnForm()
         ];
     }
     

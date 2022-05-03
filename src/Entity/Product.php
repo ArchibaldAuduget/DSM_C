@@ -45,6 +45,9 @@ class Product
     #[ORM\Column(type: 'boolean')]
     private $inStock;
 
+    #[ORM\Column(type: 'integer')]
+    private $nSell;
+
     public function __construct()
     {
         $this->category = new ArrayCollection();
@@ -96,7 +99,7 @@ class Product
         return $this->picture;
     }
 
-    public function setPicture(string $picture): self
+    public function setPicture(?string $picture): self
     {
         $this->picture = $picture;
 
@@ -163,6 +166,18 @@ class Product
     public function setInStock(bool $inStock): self
     {
         $this->inStock = $inStock;
+
+        return $this;
+    }
+
+    public function getNSell(): ?int
+    {
+        return $this->nSell;
+    }
+
+    public function setNSell(int $nSell): self
+    {
+        $this->nSell = $nSell;
 
         return $this;
     }

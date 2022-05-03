@@ -21,11 +21,11 @@ class EasyAdminSubscriber implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            BeforeEntityPersistedEvent::class => ['setCategorySlug'],
+            BeforeEntityPersistedEvent::class => ['setSlugAndSell'],
         ];
     }
 
-    public function setCategorySlug(BeforeEntityPersistedEvent $event)
+    public function setSlugAndSell(BeforeEntityPersistedEvent $event)
     {
         $entity = $event->getEntityInstance();
 
@@ -35,5 +35,11 @@ class EasyAdminSubscriber implements EventSubscriberInterface
 
         $slug = strtolower($this->slugger->slug($entity->getName()));
         $entity->setSlug($slug);
+
+        if ($entity instanceof Product) {
+            $entity->setNSell(0);
+        }
+
+        
     }
 }

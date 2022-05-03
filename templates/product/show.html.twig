@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block body %}
+
+<div class="row mt-5">
+    <div class="col-12 col-md-12 col-lg-6">
+        <img src="/uploads/pictures/{{ product.picture }}" class="img-fluid border" alt="{{ product.name }}">
+    </div>
+    <div class="col-12 col-md-12 col-lg-6">
+        <h2>{{ product.name }}</h2>
+        <div class="product-trait mb-2"></div>
+            {% if product.inStock == 1 %}
+                <div class="d-flex bd-highlight mb-3">
+                    <div class="stock-true p-2 bd-highlight"></div>
+                    <p class="p-2 bd-highlight">En stock</p>
+                    <p class="ms-auto p-2 bd-highlight">Acheté avant 12h (UTC+2), expedié aujourd'hui !</p>
+                </div>
+            {% else %}
+                <div class="d-flex justify-content-start">
+                    <div class="stock-false"></div>
+                    <p>Rupture de stock !</p>
+                </div>
+            {% endif %}
+            <p>PRIX :</p>
+            <p class="product-price">{{ product.price }} &euro;</p>
+            <p><i class="fas fa-star"></i> &nbsp; Moyenne des avis : 5</p>
+            <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-success product-cart-btn"><i class="fas fa-shopping-cart"></i> &nbsp; AJOUTER AU PANIER</a>
+    </div>
+    <div class="product-trait mt-5 mb-4"></div>
+    <h4 class="text-center mb-3">DESCRIPTION</h4>
+    <p>{{ product.shortDescription }}</p>
+    <div class="product-trait mt-5 mb-4"></div>
+</div>
+
+
+
+{% endblock %}

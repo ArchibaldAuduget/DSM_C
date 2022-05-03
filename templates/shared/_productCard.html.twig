@@ -1,0 +1,10 @@
+<div class="col-12 col-md-12 col-lg-4 mt-3">
+            <div class="card h-100">
+                <img src="uploads/pictures/{{ p.picture }}" class="card-image-top" alt="Image du produit">
+                <div class="card-body">
+                    <h4 class="card-title">{{ p.name }} ({{ p.price }} &euro;)</h4>
+                    <a href="{{ path('product', {'catslug': category.slug, 'slug': p.slug}) }}" class="btn btn-primary btn-sm">Détails</a>
+                    <a href="{{ path('cart_add', {'id': p.id}) }}" class="btn btn-success btn-sm">Ajouter</a>
+                </div>
+            </div>
+</div>

@@ -1,0 +1,42 @@
+<nav class="navbar">
+    <a href="{{ path('home') }}"><img src="/images/logo-t3.png" alt="brand-logo"  class="brand-logo"></a>
+    <form method="GET" class="search-container">
+        <button class="search-button"><i class="fas fa-search"></i></button>
+        <input class="searchbar" type="search" name="search" id="" placeholder=" &nbsp; Recherchez...">
+    </form>
+    <a href="#" class="toggle-button">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </a>
+    <div class="navbar-links">
+        <ul>
+            <li><a href="{{ path('cart_show') }}" class="navbar-icon"><div><i class="fas fa-shopping-cart"></i></div><p>Panier ({{ cartService.total }} &euro;)</p></a></li>
+            <li><a href="" class="navbar-icon"><div><i class="fas fa-user"></i></div><p>Mon compte</p></a></li>
+            <li><a href="" class="navbar-icon"><div><i class="fas fa-question"></i></div><p>A propos</p></a></li>
+        </ul>
+    </div>
+</nav>
+<div class="ctb-container">
+    <a href="#" class="cat-toggle-button">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </a>
+    <p class="ctb-text">Voir catégories</p>
+</div>
+<div class="catbar">
+    <ul>
+        <li><a href="{{ path('category_show', {'slug': 'guitares'}) }}">GUITARES</a></li>
+        <li><a href="{{ path('category_show', {'slug': 'pianos'}) }}">PIANOS</a></li>
+        <li><a href="{{ path('category_show', {'slug': 'amplis-et-effets'}) }}">AMPLIS</a></li>
+        <li><a href="{{ path('category_show', {'slug': 'batteries'}) }}">BATTERIES</a></li>
+        <li><a href="{{ path('category_show', {'slug': 'accessoires'}) }}">ACCESSOIRES</a></li>
+        <li><a href="{{ path('category_show', {'slug': 'micros'}) }}">MICROS</a></li>
+        <li><a href="{{ path('category_show', {'slug': 'casques'}) }}">CASQUES</a></li>
+        <li><a href="{{ path('category_show', {'slug': 'cables'}) }}">CABLES</a></li>
+        <li><a href="{{ path('category_show', {'slug': 'enregistrements'}) }}">ENREGISTREMENTS</a></li>
+    </ul>
+</div>
+
+
