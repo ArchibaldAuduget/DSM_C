@@ -61,7 +61,7 @@ class PurchaseConfirmationController extends AbstractController
             $purchaseItem = new PurchaseItem;
             $purchaseItem->setPurchase($purchase)
                 ->setProduct($cartItem->product)
-                ->setProductName($cartItem->product->getPrice())
+                ->setProductName($cartItem->product->getName())
                 ->setQuantity($cartItem->qty)
                 ->setTotal($cartItem->getTotal())
                 ->setProductPrice($cartItem->product->getPrice());
@@ -73,9 +73,8 @@ class PurchaseConfirmationController extends AbstractController
 
         $this->em->flush();
 
-        $this->cartService->empty();
-
-        $this->addFlash('success', 'La commande a bien été enregistrée');
-        return $this->redirectToRoute('cart_show');
+        return $this->redirectToRoute('purchase_payment_form', [
+            'id' => $purchase->getId()
+        ]);
     }
 }

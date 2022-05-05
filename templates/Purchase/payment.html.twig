@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Payez votre commande{% endblock %}
+
+{% block body %}
+    <h1>Payez votre commande</h1>
+    <form id="payment-form">
+      <div id="payment-element">
+      </div>
+      <button id="submit" class="btn btn-success">
+        <div class="spinner hidden" id="spinner"></div>
+        <span id="button-text">Payez maintenant</span>
+      </button>
+      <div id="payment-message" class="hidden"></div>
+    </form>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        const clientSecretInit = "{{ clientSecret }}";
+        const stripePublicKey = '{{ stripePublicKey }}';
+        const redirectAfterSuccessUrl = "{{ url('purchase_payment_success', {'id': purchase.id}) }}"
+    </script>
+    <script src="{{ asset('assets/js/payment.js') }}" defer></script>
+{% endblock %}
+
