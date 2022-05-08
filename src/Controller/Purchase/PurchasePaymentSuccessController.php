@@ -29,6 +29,16 @@ class PurchasePaymentSuccessController extends AbstractController
             return $this->redirectToRoute('cart_show');
         }
 
+        // augmentation nSells
+        foreach($purchase->getPurchaseItems() as $item) {
+            $qty = $item->getQuantity();
+            $product = $item->getProduct();
+            $oldSells = $product->getNSell();
+            $product->setNSell($oldSells + $qty);
+        }
+
+
+
         $purchase->setStatus(Purchase::STATUS_PAID);
         $em->flush();
 

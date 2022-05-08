@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block body %}
+<h1>Mon compte</h1>
+
+<h3>Mes Informations :</h3>
+
+<p>Adresse Email : {{ app.user.email }}</p>
+<p>Prénom : {{ app.user.firstName }}</p>
+<p>Nom de famille : {{ app.user.lastName }}</p>
+<p>Adresse : {{ app.user.address }}</p>
+<p>Numéro de téléphone : {{ app.user.phoneNumber }}</p>
+<p>Pays : {{ app.user.country }}</p>
+<p>Code postal : {{ app.user.postalCode }}</p>
+<p>Ville : {{ app.user.city }}</p>
+
+<a class="btn btn-primary" href="{{ path('account_modify', {'id' : app.user.id}) }}">Modifier les informations de mon compte</a>
+<a class="btn btn-primary" href="">Modifier le mot de passe de mon compte</a>
+
+<h3>Mes commandes</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Numéro</th>
+            <th>Adresse</th>
+            <th>Date de commande</th>
+            <th>Produits</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in purchases %}
+            <tr>
+                <td>{{ p.id }}</td>
+                <td>{{ p.address }}<br>{{ p.postalCode }}, {{ p.city }}</td>
+                <td>{{ p.purchasedAt | date('d/m/y H:i') }}</td>
+                <td>
+                    <ul>
+                        {% for item in p.purchaseItems %}
+                            <li>{{ item.quantity }}x &nbsp;{{ item.productName }}  {{ item.total | amount }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td>{{ p.total | amount }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Modifier les informations du compte
+{% endblock %}
+
+{% block body %}
+    <h1>Modifier mon compte</h1>
+
+    {{ form_start(formview) }}
+    {{form_errors(formview)}}
+
+    {{form_row(formview.firstName, {'value': app.user.firstName})}}
+    {{form_row(formview.lastName, {'value': app.user.lastName})}}
+    {{form_row(formview.phoneNumber, {'value': app.user.phoneNumber})}}
+    {{form_row(formview.address, {'value': app.user.address})}}
+    {{form_row(formview.postalCode, {'value': app.user.postalCode})}}
+    {{form_row(formview.country, {'value': app.user.country})}}
+    {{form_row(formview.city, {'value': app.user.city})}}
+        <button type="submit" class="btn btn-success">Confirmer les modifications</button>
+
+    {{ form_rest(formview) }}
+    {{ form_end(formview) }}
+{% endblock %}

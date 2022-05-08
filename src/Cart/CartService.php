@@ -89,6 +89,17 @@ class CartService
         return $total;
     }
 
+    public function getqtyItems(): int
+    {
+        $qtyItems = 0;
+
+        foreach($this->getCart() as $id => $qty) {
+            $qtyItems += $qty;
+        }
+
+        return $qtyItems;
+    }
+
     /**
      * Undocumented function
      *

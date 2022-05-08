@@ -24,7 +24,7 @@
                 </div>
             {% endif %}
             <p>PRIX :</p>
-            <p class="product-price">{{ product.price }} &euro;</p>
+            <p class="product-price">{{ product.price | amount }}</p>
             <p><i class="fas fa-star"></i> &nbsp; Moyenne des avis : 5</p>
             <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-success product-cart-btn"><i class="fas fa-shopping-cart"></i> &nbsp; AJOUTER AU PANIER</a>
     </div>
@@ -34,6 +34,48 @@
     <div class="product-trait mt-5 mb-4"></div>
 </div>
 
+{# Sécurité pour eviter bug #}
+{% if app.user is not null %}
+    {# compteur de vérif si user a déjà acheté cet article #}
+    {% set count = 0 %}
+    {% for purchase in app.user.purchases %}
+        {% for item in purchase.purchaseItems %}
+            {% if item.productName == product.name %}
+                {% set count = count + 1 %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
 
+    {# Compteur de verif si user a déjà posté un commentaire pour cet article #}
+    {% set count2 = 0 %}
+    {% for comment in app.user.comments %}
+        {% if comment.product.id == product.id %}
+            {% set count2 = count2 + 1 %}
+        {% endif %}
+    {% endfor %}
+
+    {% if count > 0 and count2 == 0 %}
+        <h3>Mettez un avis sur l'article que vous avez acheté !</h3>
+
+        {{ form_start(formview) }}
+        {{form_errors(formview)}}
+
+        {{form_row(formview.note)}}
+        {{form_row(formview.content)}}
+            <button type="submit" class="btn btn-success">Poster le commentaire</button>
+        {{ form_rest(formview) }}
+        {{ form_end(formview) }}
+    {% endif %}
+{% endif %}
+
+{% if comments is not null %}
+    {% for comment in comments %}
+        <p>{{ comment.fullName }}</p>
+        <p>Note : {{ comment.note }}</p>
+        <p>Posté le {{ comment.postedAt | date('d/m/y') }}</p>
+        <p>{{ comment.content }}</p>
+        <div class="comment-trait mt-4 mb-4"></div>
+    {% endfor %}
+{% endif %}
 
 {% endblock %}

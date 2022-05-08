@@ -1,6 +1,6 @@
 <nav class="navbar">
     <a href="{{ path('home') }}"><img src="/images/logo-t3.png" alt="brand-logo"  class="brand-logo"></a>
-    <form method="GET" class="search-container">
+    <form method="GET" class="search-container" action="{{ path('cart_show') }}">
         <button class="search-button"><i class="fas fa-search"></i></button>
         <input class="searchbar" type="search" name="search" id="" placeholder=" &nbsp; Recherchez...">
     </form>
@@ -11,8 +11,13 @@
     </a>
     <div class="navbar-links">
         <ul>
-            <li><a href="{{ path('cart_show') }}" class="navbar-icon"><div><i class="fas fa-shopping-cart"></i></div><p>Panier ({{ cartService.total }} &euro;)</p></a></li>
-            <li><a href="" class="navbar-icon"><div><i class="fas fa-user"></i></div><p>Mon compte</p></a></li>
+            <li><a href="{{ path('cart_show') }}" class="navbar-icon"><div><i class="fas fa-shopping-cart"></i></div><p>Panier ({{ cartService.qtyItems }})</p></a></li>
+            {% if app.user is not null %}
+                <li><a href="{{ path('app_logout') }}" class="navbar-icon"><div><i class="fas fa-user-lock"></i></div><p>Se déconnecter</p></a></li>
+            {% else %}
+                <li><a href="{{ path('app_login') }}" class="navbar-icon"><div><i class="fas fa-user-lock"></i></div><p>Se connecter</p></a></li>
+            {% endif %}
+            <li><a href="{{ path('account') }}" class="navbar-icon"><div><i class="fas fa-user"></i></div><p>Mon compte</p></a></li>
             <li><a href="" class="navbar-icon"><div><i class="fas fa-question"></i></div><p>A propos</p></a></li>
         </ul>
     </div>

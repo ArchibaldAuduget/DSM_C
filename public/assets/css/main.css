@@ -9,6 +9,12 @@
     background-color: black;
 }
 
+.comment-trait {
+    height: 1px;
+    width: 100%;
+    background-color: rgba(110, 109, 109, 0.315);
+}
+
 .stock-true {
     height: 0.75rem;
     width: 0.75rem;
