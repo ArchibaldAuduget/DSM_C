@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recherche : {{ searchName }}{% endblock %}
+
+{% block body %}
+<div class="row mt-5">
+    <h3 class="mb-5">Résultats pour la recherche : {{ searchName }}</h3>
+
+    {% if products is not empty %}
+        {% set category = {'slug': 'research'} %}
+        {% for p in products %}
+            {% include "shared/_productCard.html.twig" %}
+        {% endfor %}
+
+    {% else %}
+        <div>Aucune correspondance trouvée</div>  
+    {% endif %}
+</div>
+{% endblock %}

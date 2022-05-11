@@ -39,7 +39,7 @@
 }
 
 .navbar-links li a:hover {
-    color: rgb(55, 235, 210)
+    color: var(--hover);
 }
 
 .toggle-button {

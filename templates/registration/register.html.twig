@@ -15,7 +15,7 @@
 
     {{ form_start(registrationForm, ) }}
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 auth-form">
             {{ form_row(registrationForm.email, {
                 label: 'Adresse email :',
                 'attr': {'placeholder': 'Votre adresse email'}
@@ -36,11 +36,10 @@
     </div>
 
     <div class="agree">
-        <p>Déja inscrit ? <a href="{{ path('app_login') }}">Connectez-vous ici</a></p>
-        <p>En cochant la case ci dessous, vous acceptez les <a class="cr_redirect" href="#">conditions d'utilisation de DS Music</a> ainsi que notre 
-        <a href="#">politique de confidentialité.</a></p>
-        <div class="agree-check">{{ form_row(registrationForm.agreeTerms) }}</div>
-        <button type="submit" class="btn btn-primary">S'inscrire</button>
+        <button type="submit" class="auth-button"><strong>S'inscrire</strong></button>
+        <div class="auth-trait mb-3"></div>
+        <p>Déja inscrit ? </p>
+        <a class="auth-link" href="{{ path('app_login') }}">Connectez-vous !</a>
     </div>
     {{ form_end(registrationForm) }}
 {% endblock %}

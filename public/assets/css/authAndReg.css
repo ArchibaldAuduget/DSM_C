@@ -19,8 +19,54 @@ h1 {
 }
 
 .connexion-card {
-    background-color: rgba(206, 204, 204, 0.5);
-    padding: 6rem 4rem 6rem 4rem;
-    border-radius: 15px;
-    margin-top: 8%
+    /* background-color: rgba(236, 173, 173, 0.5); */
+    /* padding: 6rem 4rem 6rem 4rem; */
+    margin-top: 1rem;
+    outline: none;
+}
+
+.auth-form {
+    color: black;
+    border-color: rgba(0, 0, 0, 0.7);
+}
+
+.auth-form::placeholder {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.auth-button {
+    font-family: 'Lato', sans-serif;
+    height: 3rem;
+    width: 10rem;
+    background-color: black;
+    color: white;
+    border-radius: 25px;
+    font-size: 1.25rem;
+    border: none;
+    margin-bottom: 1rem;
+}
+
+.auth-button:hover {
+    background-color: var(--hover);
+    color: black;
+    transition: all 0.3s ease 0s;
+}
+
+.auth-link {
+    color: black;
+    border-bottom: 1px solid black;
+    font-size: 1.25rem;
+    transition: all 0.2s ease 0s;
+}
+
+.auth-link:hover {
+    font-size: 1.35rem;
+    color: black;
+}
+
+.auth-trait {
+    height: 1px;
+    width: 100%;
+    background-color: black;
+    margin-top: 2rem;
 }

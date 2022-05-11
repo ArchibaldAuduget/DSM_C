@@ -1,3 +1,7 @@
+:root {
+    --hover: rgb(86, 230, 210);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,6 +11,29 @@
     height: 1px;
     width: 100%;
     background-color: black;
+}
+
+.product-card-title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-card-price {
+    font-size: 1.5rem;
+}
+
+.grey-star {
+    opacity: 0.5;
+}
+
+.product-card-note {
+    margin-top: -1rem;
+}
+
+.product-card-link {
+    text-decoration: none;
+    color: black;
 }
 
 .comment-trait {
@@ -45,4 +72,35 @@
 .btn-cart {
     float: right;
     /* margin-bottom: 5rem; */
+}
+
+/* -------- HOME -------- */
+
+.home-subtitle {
+    font-size: 1.25rem;
+}
+
+.home-free-deliv {
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+    height: 5rem;
+    text-align: center;
+    line-height: 2.65;
+    font-family: 'Koulen', cursive;
+}
+
+.portrait {
+    border-right: 1px solid black;
+}
+
+.home-portrait {
+    height : 6.5rem;
+    width: 6.5rem;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.portrait-text {
+    text-align: left;
 }

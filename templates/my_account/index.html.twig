@@ -17,7 +17,7 @@
 <p>Ville : {{ app.user.city }}</p>
 
 <a class="btn btn-primary" href="{{ path('account_modify', {'id' : app.user.id}) }}">Modifier les informations de mon compte</a>
-<a class="btn btn-primary" href="">Modifier le mot de passe de mon compte</a>
+<a class="btn btn-primary" href="{{ path('app_forgot_password_request') }}">Modifier le mot de passe de mon compte</a>
 
 <h3>Mes commandes</h3>
 

@@ -1,10 +1,91 @@
-<div class="col-12 col-md-12 col-lg-4 mt-3">
+<div class="col-12 col-md-6 col-lg-3 mt-3">
             <div class="card h-100">
-                <img src="uploads/pictures/{{ p.picture }}" class="card-image-top" alt="Image du produit">
+            <a href="{{ path('product', {'catslug': category.slug, 'slug': p.slug}) }}" class="product-card-link">
+                <img src="uploads/pictures/{{ p.picture }}" class="card-img-top" alt="{{ p.name }}">
                 <div class="card-body">
-                    <h4 class="card-title">{{ p.name }} ({{ p.price | amount }})</h4>
-                    <a href="{{ path('product', {'catslug': category.slug, 'slug': p.slug}) }}" class="btn btn-primary btn-sm">Détails</a>
-                    <a href="{{ path('cart_add', {'id': p.id}) }}" class="btn btn-success btn-sm">Ajouter</a>
+                    <p class="card-title product-card-title">{{ p.name }}</p>
+                    <p class="product-card-price"><strong>{{ p.price | amount }}</strong></p>
+                    {% if p.inStock == 1 %}
+                        <div class="d-flex bd-highlight">
+                            <div class="stock-true p-2 bd-highlight"></div>
+                            <p class="p-2 bd-highlight">En stock</p>
+                        </div>
+                    {% else %}
+                        <div class="d-flex justify-content-start">
+                            <div class="stock-false"></div>
+                            <p class="p-2 bd-highlight">Rupture de stock !</p>
+                        </div>
+                     {% endif %}
+                        {% if p.comments is not empty %}
+                            {% set noteCount = 0 %}
+                            {% set noteTotal = 0 %}
+                            {% for comment in p.comments %}
+                                {% set noteTotal = noteTotal + comment.note %}
+                                {% set noteCount = noteCount + 1 %}
+                            {% endfor %}
+                            {% set titi = (noteTotal / noteCount) |round(0, 'common') %}
+                            {% if titi == 1 %}
+                                <p class="product-card-note">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star grey-star"></i>
+                                    <i class="fas fa-star grey-star"></i>
+                                    <i class="fas fa-star grey-star"></i>
+                                    <i class="fas fa-star grey-star"></i>
+                                    ({{ noteCount }})
+                                </p>
+                            {% endif %}
+                            {% if titi == 2 %}
+                                <p class="product-card-note">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star grey-star"></i>
+                                    <i class="fas fa-star grey-star"></i>
+                                    <i class="fas fa-star grey-star"></i>
+                                    ({{ noteCount }})
+                                </p>
+                            {% endif %}
+                            {% if titi == 3 %}
+                                <p class="product-card-note">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star grey-star"></i>
+                                    <i class="fas fa-star grey-star"></i>
+                                    ({{ noteCount }})
+                                </p>
+                            {% endif %}
+                            {% if titi == 4 %}
+                                <p class="product-card-note">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    ({{ noteCount }})
+                                </p>
+                            {% endif %}
+                            {% if titi == 5 %}
+                                <p class="product-card-note">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    ({{ noteCount }})
+                                </p>
+                            {% endif %}
+                            
+                        {% else %}
+                            <p class="product-card-note">
+                                <i class="fas fa-star grey-star"></i>
+                                <i class="fas fa-star grey-star"></i>
+                                <i class="fas fa-star grey-star"></i>
+                                <i class="fas fa-star grey-star"></i>
+                                <i class="fas fa-star grey-star"></i>
+                                (0)
+                            </p>
+                        {% endif %}
                 </div>
+            </a>
             </div>
 </div>

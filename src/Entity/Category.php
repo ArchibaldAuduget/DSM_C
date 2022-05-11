@@ -21,15 +21,11 @@ class Category
     #[ORM\Column(type: 'string', length: 255)]
     private $slug;
 
-    #[ORM\ManyToMany(targetEntity: SubCategory::class, mappedBy: 'ManyToMany')]
-    private $tg;
-
     #[ORM\ManyToMany(targetEntity: Product::class, mappedBy: 'category')]
     private $products;
 
     public function __construct()
     {
-        $this->tg = new ArrayCollection();
         $this->products = new ArrayCollection();
     }
 
@@ -58,33 +54,6 @@ class Category
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, SubCategory>
-     */
-    public function getTg(): Collection
-    {
-        return $this->tg;
-    }
-
-    public function addTg(SubCategory $tg): self
-    {
-        if (!$this->tg->contains($tg)) {
-            $this->tg[] = $tg;
-            $tg->addManyToMany($this);
-        }
-
-        return $this;
-    }
-
-    public function removeTg(SubCategory $tg): self
-    {
-        if ($this->tg->removeElement($tg)) {
-            $tg->removeManyToMany($this);
-        }
 
         return $this;
     }

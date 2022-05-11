@@ -2,15 +2,55 @@
 
 {% block title %}Accueil{% endblock %}
 
+{% block meta_description %}Retrouvez tous nos articles guitare, clavier, piano, batterie, synthé, home studio sur DS Music{% endblock %}
+
 {% block body %}
-<h1 class="mt-5 text-center">Bienvenue sur DS Music, le site des les musiciens passionnés !</h1>
+{% include "shared/_slider.html.twig" %}
+<div class="home-free-deliv">
+    <p>LIVRAISON <u>GRATUITE</u> EN FRANCE METROPOLITAINE !</p>
+</div>
+
+<h1 class="mt-5 mb-4 text-center">Bienvenue sur DS Music, le site des musiciens passionnés !</h1>
+
+<div class="row home-subtitle">
+    <p class="col-12 col-md-6 col-lg-6 text-center">Profitez des meilleures marques aux meilleurs prix !</p>
+    <p class="col-12 col-md-6 col-lg-6 text-center">Profitez d'une large gamme de produits !</p>
+    <p class="col-12 col-md-6 col-lg-6 text-center">Une équipe de musiciens passionés à votre service !</p>
+    <p class="col-12 col-md-6 col-lg-6 text-center">Conseils d'experts en la matière !</p>
+</div>
+<div class="mt-4 product-trait"></div>
 
 <div class="row mt-5">
-    <h3 class="mt-2 mb-2">Nos meilleures ventes :</h3>
+    <h4 class="mt-2 mb-2 text-center">LES PRODUITS LES PLUS VENDUS :</h4>
     {% set category = {'slug': 'bestsells'} %}
     {% for p in products %}
         {% include "shared/_productCard.html.twig" %}
     {% endfor %}
+</div>
+
+<div class="mt-5 mb-5 product-trait"></div>
+
+<div class="row">
+    <div class="portrait d-flex text-center col-12 col-md-6 col-lg-6">
+        <div class="col-12 col-md-6 col-lg-6">
+            <img class="home-portrait" src="images/profiles/profile1.jpg" alt="Chloé">
+        </div>
+        <div class="portrait-text col-12 col-md-6 col-lg-6">
+            <p><u>Chloé DUPRAZ :</u></p>
+            <p>Diréctrice fondatrice de DS Music</p>
+            <p>Contact : 06.99.99.99.99</p>
+        </div>
+    </div>
+    <div class="d-flex text-center col-12 col-md-6 col-lg-6">
+        <div class="col-12 col-md-6 col-lg-6">
+            <img class="home-portrait" src="images/profiles/profile2.jpg" alt="Romain">
+        </div>
+        <div class="portrait-text col-12 col-md-6 col-lg-6">
+            <p><u>Romain CASTILLERE :</u></p>
+            <p>Représentant commercial de DS Music</p>
+            <p>Contact : 06.99.99.99.99</p>
+        </div>
+    </div>
 </div>
 
 {% endblock %}

@@ -2,6 +2,8 @@
 
 {% block title %}{{ product.name }}{% endblock %}
 
+{% block meta_description %}{{ product.name }} - Retrouvez la fiche produit pour {{ product.name }}{% endblock %}
+
 {% block body %}
 
 <div class="row mt-5">
@@ -25,8 +27,21 @@
             {% endif %}
             <p>PRIX :</p>
             <p class="product-price">{{ product.price | amount }}</p>
-            <p><i class="fas fa-star"></i> &nbsp; Moyenne des avis : 5</p>
-            <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-success product-cart-btn"><i class="fas fa-shopping-cart"></i> &nbsp; AJOUTER AU PANIER</a>
+            <p><i class="fas fa-star"></i> &nbsp; Moyenne des avis : 
+            {% if comments is not empty %}
+                {% set noteCount = 0 %}
+                {% set noteTotal = 0 %}
+                {% for comment in comments %}
+                    {% set noteTotal = noteTotal + comment.note %}
+                    {% set noteCount = noteCount + 1 %}
+                {% endfor %}
+                {{ (noteTotal / noteCount) |round(1, 'floor') }}
+            {% else %}
+                pas d'avis
+            {% endif %}</p>
+            {% if product.inStock == 1 %}
+                <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-success product-cart-btn"><i class="fas fa-shopping-cart"></i> &nbsp; AJOUTER AU PANIER</a>
+            {% endif %}
     </div>
     <div class="product-trait mt-5 mb-4"></div>
     <h4 class="text-center mb-3">DESCRIPTION</h4>
@@ -65,6 +80,7 @@
             <button type="submit" class="btn btn-success">Poster le commentaire</button>
         {{ form_rest(formview) }}
         {{ form_end(formview) }}
+        <div class="product-trait mt-4 mb-4"></div>
     {% endif %}
 {% endif %}
 

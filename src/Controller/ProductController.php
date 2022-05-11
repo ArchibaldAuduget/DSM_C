@@ -29,7 +29,7 @@ class ProductController extends AbstractController
 
         $comments = $commentRepository->findBy([
             'product' => $product
-        ]);
+        ], ['PostedAt' => 'DESC']);
 
         $form = $this->createForm(CommentType::class);
 
