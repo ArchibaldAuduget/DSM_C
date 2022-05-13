@@ -1,5 +1,5 @@
 :root {
-    --hover: rgb(86, 230, 210);
+    --hover: rgb(85, 230, 210);
 }
 
 * {
@@ -67,11 +67,22 @@
 
 .product-cart-btn {
     width: 100%;
+    margin-top: 1rem;
+}
+
+.product-description {
+    text-align: left;
 }
 
 .btn-cart {
     float: right;
     /* margin-bottom: 5rem; */
+}
+
+.comment-date {
+    position: absolute;
+    right: 17.5%;
+    margin-top: -4rem;
 }
 
 /* -------- HOME -------- */
@@ -94,13 +105,165 @@
     border-right: 1px solid black;
 }
 
+.workers-card {
+    transition: all 0.2s ease 0s;
+    box-shadow: 2px 2px 12px black;
+    text-align: center;
+}
+
+.workers-card-name {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.workers-card-subtitle {
+    font-size: 1.5rem;
+}
+
 .home-portrait {
-    height : 6.5rem;
-    width: 6.5rem;
+    height : 15rem;
+    width: 15rem;
     border-radius: 50%;
     margin: 0 auto;
+    margin-top: 3rem;
 }
 
 .portrait-text {
     text-align: left;
+}
+
+/* -------- CATEGORY -------- */
+
+.cat-title {
+    background-image: url('/images/piano-wallpaper.jpg');
+    color: white;
+    height: 16rem;
+    width: 100%;
+    border-radius: 10px;
+    margin-top: -3rem;
+}
+
+.cat-title h1 {
+    margin-left: 1rem;
+    margin-top: 5rem;
+}
+
+.cat-title p a {
+    text-decoration: none;
+    color: white;
+}
+
+
+.cat-title p a:hover {
+    color: var(--hover);
+}
+
+.cat-title p {
+    margin-left: 1rem;
+    margin-top: 4rem;
+}
+
+.cat-title {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+
+/* -------- CATEGORY LIST -------- */
+
+.cat-container {
+    border: 1px solid white;
+    height: 3rem;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    text-align: center;
+    margin-top: 1.5rem;
+    transition: all 0.2s ease 0s;
+}
+
+.cat-container h4 {
+    line-height: 1.8;
+}
+
+.cat-container:hover {
+    font-weight: bold;
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+}
+
+/* -------- FLASH -------- */
+
+
+
+.flash-btn {
+    font-size: 2rem;
+    margin-right: 1.5rem;
+    margin-top: 1rem;
+    font-family: 'Patrick Hand', cursive;
+    cursor: pointer;
+}
+
+.closed {
+    display: none;
+}
+
+.flash-msg {
+    margin-top: 1.5rem;
+    font-size: 1.25rem;
+}
+
+/* -------- MY ACCOUNT -------- */
+
+.account-info-container {
+    width: 50%;
+    margin-left: 25%;
+}
+
+.account-info-subcontainer {
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    border-top: none;
+}
+
+.first {
+    border-top: 1px solid rgba(128, 128, 128, 0.5);
+}
+
+.account-info-title {
+    margin-top: .75rem;
+    font-weight: bold;
+}
+
+.myaccount-show-btn {
+    cursor: pointer;
+    border: 1px solid black;
+    width: 6%;
+    margin-left: 47%;
+    border-radius: 8px;
+}
+
+.myaccount-hide-btn {
+    cursor: pointer;
+    border: 1px solid black;
+    width: 6%;
+    margin-left: 47%;
+    border-radius: 8px;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 900px) {
+    .account-info-container {
+        width: 100%;
+        margin-left: 0%;
+    }
+}
+
+/* -------- OUR COMPANY -------- */
+
+.company-text {
+    text-align: left;
+    font-size: 1.25rem;
 }

@@ -5,19 +5,28 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Modifier mon compte</h1>
+    <h1 class="mb-4 mt-4">Modifier mon compte</h1>
 
     {{ form_start(formview) }}
     {{form_errors(formview)}}
 
-    {{form_row(formview.firstName, {'value': app.user.firstName})}}
-    {{form_row(formview.lastName, {'value': app.user.lastName})}}
-    {{form_row(formview.phoneNumber, {'value': app.user.phoneNumber})}}
-    {{form_row(formview.address, {'value': app.user.address})}}
-    {{form_row(formview.postalCode, {'value': app.user.postalCode})}}
-    {{form_row(formview.country, {'value': app.user.country})}}
-    {{form_row(formview.city, {'value': app.user.city})}}
+    <div class="row">
+        <div class="col-md-6 auth-form">
+            {{form_row(formview.firstName, {'value': app.user.firstName})}}
+            {{form_row(formview.lastName, {'value': app.user.lastName})}}
+            {{form_row(formview.phoneNumber, {'value': app.user.phoneNumber})}}
+            {{form_row(formview.address, {'value': app.user.address})}}
+        </div>
+        <div class="col-md-6">
+            {{form_row(formview.postalCode, {'value': app.user.postalCode})}}
+            {{form_row(formview.country, {'value': app.user.country})}}
+            {{form_row(formview.city, {'value': app.user.city})}}
+        </div>
+    </div>
+    <div class="text-center mt-4">
         <button type="submit" class="btn btn-success">Confirmer les modifications</button>
+    </div>
+
 
     {{ form_rest(formview) }}
     {{ form_end(formview) }}

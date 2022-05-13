@@ -1,7 +1,10 @@
+{% block javascripts %}<script src="{{ asset('assets/js/flashClose.js') }}" defer></script>{% endblock %}
+
 {% for rubrique, messages in app.flashes %}
-            <div class="msg_flash alert alert-{{ rubrique }}">
+            <div class="flash-container d-flex justify-content-between msg_flash alert alert-{{ rubrique }} flash-container">
                 {% for message in messages %}
-                    <p>{{ message }}</p>
+                    <p class="flash-msg">{{ message }}</p>
+                    <p class="flash-btn"><strong>X</strong></p>
                 {% endfor %}
             </div>
         {% endfor %}

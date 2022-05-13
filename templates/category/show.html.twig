@@ -6,14 +6,10 @@
 
 {% block body %}
 
-<div>
-    <h1 class="mt-5">Catégorie : {{ category.name }}</h1>
-</div>
-
-<p class="mb-2 mt-5">Trier par :</p>
-<div class="d-flex justify-content-start gap-2">
-    <a href="{{ path('category_show', {'slug': category.slug, 'sort': '1'}) }}" class="btn btn-primary mr-5">Prix : Croissant &nbsp; <i class="fas fa-sort-up"></i></a>
-    <a href="{{ path('category_show', {'slug': category.slug, 'sort': '2'}) }}" class="btn btn-primary mr-2">Prix : Décroissant &nbsp; <i class="fas fa-sort-down"></i></a>
+<div class="mb-4 cat-title">
+    <p><a href="{{ path('home') }}"><i class="fas fa-home"></a></i>&nbsp; | &nbsp;<a href="{{ path('category_list') }}">Toutes les catégories</a> &nbsp;| &nbsp;{{ category.name }}</p>
+    <h1>{{ category.name | upper }}</h1>
+    <p><a href="{{ path('category_show', {'slug': category.slug, 'sort': '3'}) }}">LES PLUS VENDUS</a> &nbsp; | &nbsp; <a href="{{ path('category_show', {'slug': category.slug, 'sort': '1'}) }}">PRIX CROISSANT</a>&nbsp; | &nbsp; <a href="{{ path('category_show', {'slug': category.slug, 'sort': '2'}) }}">PRIX DECROISSANT</a></p>
 </div>
 
 <div class="row">
@@ -24,6 +20,12 @@
     {% endfor %}
 
 {% elseif app.request.query.get('sort') == 2 %}
+
+    {% for p in products |sort((a, b) => b.price <=> a.price) %}
+        {% include "shared/_productCard.html.twig" %}
+    {% endfor %}
+
+{% elseif app.request.query.get('sort') == 3  %}
 
     {% for p in products |sort((a, b) => b.price <=> a.price) %}
         {% include "shared/_productCard.html.twig" %}

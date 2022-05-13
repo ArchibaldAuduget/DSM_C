@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+    Notre équipe
+{% endblock %}
+
+{% block body %}
+<h1 class="mt-5 mb-5">Membres de l'équipe DS Music</h1>
+
+<div class="row">
+    {% include "shared/_workersCard.html.twig" %}
+    <div class="workers-card col-12 col-md-4 col-lg-4 mt-3">
+        <div class="card border-0">
+            <img class="home-portrait" src="images/profiles/profile4.jpg" alt="Chloé">
+                <div class="card-body">
+                    <p class="workers-card-name">Damien Benot</p>
+                    <p class="workers-card-subtitle">Vendeur en magasin</p>
+                    <p>Vendeur en magasin. Spécialiste des instruments à vents. Contactez le pour toutes questions relatives aux instruments à vents.</p>
+                    <p>06.99.99.99.99</p>
+                </div>
+        </div>
+    </div>
+    <div class=" workers-card col-12 col-md-4 col-lg-4 mt-3">
+        <div class="card border-0 h-100">
+            <img class="home-portrait" src="images/profiles/profile5.jpg" alt="Romain">
+                <div class="card-body">
+                    <p class="workers-card-name">Juliette Congré</p>
+                    <p class="workers-card-subtitle">Vendeuse en magasin</p>
+                    <p>Vendeuse en magasin. Spécialiste en home studios. Contactez la pour toutes questions relatives aux au matériel studio et enregistrement.</p>
+                    <p>Contact : 06.99.99.99.99</p>
+                </div>
+        </div>
+    </div>
+    <div class=" workers-card col-12 col-md-4 col-lg-4 mt-3">
+        <div class="card border-0 h-100">
+            <img class="home-portrait" src="images/profiles/profile6.jpg" alt="Romain">
+                <div class="card-body">
+                    <p class="workers-card-name">Rafael Gronkowski</p>
+                    <p class="workers-card-subtitle">Vendeur en magasin</p>
+                    <p>Vendeur en magasin. Spécialiste des instruments à corde. Contactez le pour toutes questions relatives aux instruments à corde.</p>
+                    <p>Contact : 06.99.99.99.99</p>
+                </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

@@ -1,3 +1,35 @@
+/* ------------  ABOUT  ------------ */
+
+.about {
+    background-color: rgb(58, 58, 58);
+    color: white;
+    padding-left: 1rem;
+}
+
+.about-link {
+    text-decoration: none;
+    height: 2.5rem;
+    width: 11rem;
+    color: white;
+    border: 1px white solid;
+    text-align: center;
+    line-height: 2.25;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    transition: all 0.2s ease 0s;
+}
+
+.about-link:hover {
+    box-shadow: 2px 2px 12px white;
+    color: white;
+    font-weight: bold;
+}
+
+.about p {
+    margin-left: 63rem;
+    cursor: pointer;
+}
+
 /* ------------  NAVBAR  ------------ */
 
 .navbar {
@@ -31,14 +63,19 @@
     transition: all 0.3s ease 0s;
 }
 
-.navbar-links li a {
+.navbar-links-right {
     text-decoration: none;
     color: white;
     padding: 1rem;
     display: block;
+    cursor: pointer;
 }
 
-.navbar-links li a:hover {
+.hidden {
+    display: none;
+}
+
+.navbar-links-right:hover {
     color: var(--hover);
 }
 
@@ -87,7 +124,7 @@
     margin-bottom: -1.5rem;
 }
 
-.navbar-icon p {
+.navbar-icon p{
     margin-left: 0.5rem;
 }
 
@@ -155,20 +192,14 @@
 
 .footer {
     background-color: black;
-    display: flex;
-    justify-content: space-between;
     color: white;
     margin-top: 8rem;
 }
 
-.footer h4 {
-    margin: 2rem 8rem 2rem 8rem;
-}
-
 .footer-subcontainer {
     display: flex;
-    flex-direction: column;
-    margin-bottom: 3rem;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 .footer-subcontainer a {
@@ -180,14 +211,19 @@
 }
 
 .footer-subcontainer a:hover {
-    font-weight: bold;
+    color: var(--hover);
 }
 
-/* .footer-brand-icon {
-    display: flex;
-    justify-content: center;
-    gap: 0.75rem;
-} */
+.footer-logo {
+    font-size: 2rem;
+    margin-top: .5rem;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+}
+
+.footer-links {
+    font-size: 1.25rem;
+}
 
 @media (max-width: 1231px) {
 

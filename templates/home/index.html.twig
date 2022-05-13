@@ -30,27 +30,8 @@
 
 <div class="mt-5 mb-5 product-trait"></div>
 
-<div class="row">
-    <div class="portrait d-flex text-center col-12 col-md-6 col-lg-6">
-        <div class="col-12 col-md-6 col-lg-6">
-            <img class="home-portrait" src="images/profiles/profile1.jpg" alt="Chloé">
-        </div>
-        <div class="portrait-text col-12 col-md-6 col-lg-6">
-            <p><u>Chloé DUPRAZ :</u></p>
-            <p>Diréctrice fondatrice de DS Music</p>
-            <p>Contact : 06.99.99.99.99</p>
-        </div>
-    </div>
-    <div class="d-flex text-center col-12 col-md-6 col-lg-6">
-        <div class="col-12 col-md-6 col-lg-6">
-            <img class="home-portrait" src="images/profiles/profile2.jpg" alt="Romain">
-        </div>
-        <div class="portrait-text col-12 col-md-6 col-lg-6">
-            <p><u>Romain CASTILLERE :</u></p>
-            <p>Représentant commercial de DS Music</p>
-            <p>Contact : 06.99.99.99.99</p>
-        </div>
-    </div>
+<div class="row mt-5">
+    {% include "shared/_workersCard.html.twig" %}
 </div>
 
 {% endblock %}

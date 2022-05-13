@@ -1,26 +1,16 @@
 <footer class="footer">
-    <div>
-        <h4>Nous suivre :</h4>
-        <div class="footer-subcontainer">
-            <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
-            <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
-        </div>
+
+    <div class="footer-subcontainer">
+        <a class="footer-logo" href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+        <a class="footer-logo" href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+        <a class="footer-logo" href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
     </div>
-    <div>
-        <h4>En savoir plus :</h4>
-        <div class="footer-subcontainer">
-            <a href="">Notre entreprise</a>
-            <a href="">Notre équipe</a>
-            <a href="">Contacts</a>
-        </div>
-    </div>
-    <div>
-        <h4>Informations légales :</h4>
-        <div class="footer-subcontainer">
-            <a href="{{ path('legal_notice') }}">Mentions légales</a>
-            <a href="{{ path('cgv') }}">Conditions générales de vente</a>
-            <a href="{{ path('personal_data') }}">Vos données personnelles</a>
-        </div>
+
+    <div class="footer-subcontainer">
+        <a class="footer-links" href="{{ path('legal_notice') }}">Mentions légales</a>
+        <div class="footer-links">|</div>
+        <a  class="footer-links" href="{{ path('cgv') }}">Conditions générales de vente</a>
+        <div class="footer-links">|</div>
+        <a  class="footer-links" href="{{ path('personal_data') }}">Vos données personnelles</a>
     </div>
 </footer>

@@ -5,3 +5,4 @@
 - ajouter la fonctionalité mot de passe oublié
 - ajouter la fonctionalité se souvenir de moi
 - changer la redirection après achat vers moncompte avc vue sur les commandes
+- penser aux adresses email à changer

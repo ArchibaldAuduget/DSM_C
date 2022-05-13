@@ -1,7 +1,7 @@
 <div class="col-12 col-md-6 col-lg-3 mt-3">
             <div class="card h-100">
             <a href="{{ path('product', {'catslug': category.slug, 'slug': p.slug}) }}" class="product-card-link">
-                <img src="uploads/pictures/{{ p.picture }}" class="card-img-top" alt="{{ p.name }}">
+                <img src="/uploads/pictures/{{ p.picture }}" class="card-img-top" alt="{{ p.name }}">
                 <div class="card-body">
                     <p class="card-title product-card-title">{{ p.name }}</p>
                     <p class="product-card-price"><strong>{{ p.price | amount }}</strong></p>
@@ -60,7 +60,7 @@
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star grey-star"></i>
                                     ({{ noteCount }})
                                 </p>
                             {% endif %}

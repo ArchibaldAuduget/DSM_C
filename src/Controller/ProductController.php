@@ -74,10 +74,13 @@ class ProductController extends AbstractController
             ]);
         }
 
+        $proposedProducts = $productRepository->findBy([], ['nSell' => 'DESC'], 8);
+
         return $this->render('product/show.html.twig', [
             'product' => $product,
             'comments' => $comments,
-            'formview' => $form->createView()
+            'formview' => $form->createView(),
+            'proposedProducts' => $proposedProducts
         ]);
     }
 }

@@ -6,11 +6,11 @@
 
 {% block body %}
 
-<div class="row mt-5">
-    <div class="col-12 col-md-12 col-lg-6">
+<div class="row mt-5 text-center">
+    <div class="col-12 col-md-12 col-lg-6 mb-4">
         <img src="/uploads/pictures/{{ product.picture }}" class="img-fluid border" alt="{{ product.name }}">
     </div>
-    <div class="col-12 col-md-12 col-lg-6">
+    <div class="col-12 col-md-12 col-lg-6 product-description">
         <h2>{{ product.name }}</h2>
         <div class="product-trait mb-2"></div>
             {% if product.inStock == 1 %}
@@ -35,10 +35,11 @@
                     {% set noteTotal = noteTotal + comment.note %}
                     {% set noteCount = noteCount + 1 %}
                 {% endfor %}
-                {{ (noteTotal / noteCount) |round(1, 'floor') }}
+                {{ (noteTotal / noteCount) |round(1, 'floor') }} ({{ noteCount }} avis)
             {% else %}
                 pas d'avis
             {% endif %}</p>
+            <p><i class="fas fa-tag"></i> &nbsp; Référence DS Music : {{ product.id }}</p>
             {% if product.inStock == 1 %}
                 <a href="{{ path('cart_add', {'id': product.id}) }}" class="btn btn-success product-cart-btn"><i class="fas fa-shopping-cart"></i> &nbsp; AJOUTER AU PANIER</a>
             {% endif %}
@@ -84,14 +85,71 @@
     {% endif %}
 {% endif %}
 
-{% if comments is not null %}
+<h4 class="text-center mb-3">AVIS</h4>
+{% if comments is not empty %}
     {% for comment in comments %}
-        <p>{{ comment.fullName }}</p>
-        <p>Note : {{ comment.note }}</p>
-        <p>Posté le {{ comment.postedAt | date('d/m/y') }}</p>
+        <p class="mb-4">{{ comment.fullName }}</p>
+        {% if comment.note == 1 %}
+            <p class="product-card-note mb-4">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star grey-star"></i>
+                <i class="fas fa-star grey-star"></i>
+                <i class="fas fa-star grey-star"></i>
+                <i class="fas fa-star grey-star"></i>
+            </p>
+        {% endif %}
+        {% if comment.note == 2 %}
+            <p class="product-card-note mb-4">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star grey-star"></i>
+                <i class="fas fa-star grey-star"></i>
+                <i class="fas fa-star grey-star"></i>
+            </p>
+        {% endif %}
+        {% if comment.note == 3 %}
+            <p class="product-card-note mb-4">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star grey-star"></i>
+                <i class="fas fa-star grey-star"></i>
+            </p>
+        {% endif %}
+        {% if comment.note == 4 %}
+            <p class="product-card-note mb-4">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star grey-star"></i>
+            </p>
+        {% endif %}
+        {% if comment.note == 5 %}
+            <p class="product-card-note mb-4">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </p>
+        {% endif %}
+        <p class="comment-date">Publié le {{ comment.postedAt | date('d/m/y H:i') }}</p>
         <p>{{ comment.content }}</p>
         <div class="comment-trait mt-4 mb-4"></div>
     {% endfor %}
+
+{% else %}
+    <p class="text-center">Aucun avis n'a encore été publié pour cet article.</p>
 {% endif %}
+
+<div class="product-trait mt-4 mb-4"></div>
+<div class="row mt-5">
+    <h4 class="mt-2 mb-2 text-center">VOUS AIMEREZ AUSSI :</h4>
+    {% set category = {'slug': 'bestsells'} %}
+    {% for p in proposedProducts %}
+        {% include "shared/_productCard.html.twig" %}
+    {% endfor %}
+</div>
 
 {% endblock %}

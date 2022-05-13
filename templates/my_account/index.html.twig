@@ -1,52 +1,87 @@
 {% extends 'base.html.twig' %}
 
+{% block javascripts %}<script src="{{ asset('assets/js/showPurchases.js') }}" defer></script>{% endblock %}
+
 {% block title %}Mon compte{% endblock %}
 
 {% block body %}
-<h1>Mon compte</h1>
 
-<h3>Mes Informations :</h3>
+<h3 class="mt-4 mb-4 text-center">MES COMMANDES</h3>
 
-<p>Adresse Email : {{ app.user.email }}</p>
-<p>Prénom : {{ app.user.firstName }}</p>
-<p>Nom de famille : {{ app.user.lastName }}</p>
-<p>Adresse : {{ app.user.address }}</p>
-<p>Numéro de téléphone : {{ app.user.phoneNumber }}</p>
-<p>Pays : {{ app.user.country }}</p>
-<p>Code postal : {{ app.user.postalCode }}</p>
-<p>Ville : {{ app.user.city }}</p>
+<div class="text-center mb-4">
+    <div class="text-center myaccount-show-btn">Voir &nbsp; <i class="fas fa-arrow-down"></i></div>
+    <div class="text-center myaccount-hide-btn hidden">Voir &nbsp; <i class="fas fa-arrow-up"></i></div>
+</div>
 
-<a class="btn btn-primary" href="{{ path('account_modify', {'id' : app.user.id}) }}">Modifier les informations de mon compte</a>
-<a class="btn btn-primary" href="{{ path('app_forgot_password_request') }}">Modifier le mot de passe de mon compte</a>
-
-<h3>Mes commandes</h3>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Numéro</th>
-            <th>Adresse</th>
-            <th>Date de commande</th>
-            <th>Produits</th>
-            <th>Total</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for p in purchases %}
+<div>
+    <table class="table purchase-table hidden">
+        <thead>
             <tr>
-                <td>{{ p.id }}</td>
-                <td>{{ p.address }}<br>{{ p.postalCode }}, {{ p.city }}</td>
-                <td>{{ p.purchasedAt | date('d/m/y H:i') }}</td>
-                <td>
-                    <ul>
-                        {% for item in p.purchaseItems %}
-                            <li>{{ item.quantity }}x &nbsp;{{ item.productName }}  {{ item.total | amount }}</li>
-                        {% endfor %}
-                    </ul>
-                </td>
-                <td>{{ p.total | amount }}</td>
+                <th>Numéro</th>
+                <th>Adresse</th>
+                <th>Date de commande</th>
+                <th>Produits</th>
+                <th>Total</th>
             </tr>
-        {% endfor %}
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            {% for p in purchases %}
+                <tr>
+                    <td>{{ p.id }}</td>
+                    <td>{{ p.address }}<br>{{ p.postalCode }}, {{ p.city }}</td>
+                    <td>{{ p.purchasedAt | date('d/m/y H:i') }}</td>
+                    <td>
+                        <ul>
+                            {% for item in p.purchaseItems %}
+                                <li>{{ item.quantity }}x &nbsp;{{ item.productName }}  {{ item.total | amount }}</li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                    <td>{{ p.total | amount }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="product-trait mt-5 mb-5"></div>
+
+<h3 class="mt-4 mb-4 text-center">MES INFORMATIONS :</h3>
+
+<div class="row account-info-container mb-5">
+    <div class="account-info-subcontainer first">
+        <p class="account-info-title">Nom :</p>
+        <p class="account-info-text">{{ app.user.firstName }} {{ app.user.lastName }}</p>
+    </div>
+        <div class="account-info-subcontainer">
+        <p class="account-info-title">Adresse Email :</p>
+        <p class="account-info-text">{{ app.user.email }}</p>
+    </div>
+        <div class="account-info-subcontainer">
+        <p class="account-info-title">Adresse :</p>
+        <p class="account-info-text">{{ app.user.address }}</p>
+    </div>
+        <div class="account-info-subcontainer">
+        <p class="account-info-title">Ville :</p>
+        <p class="account-info-text">{{ app.user.city }}</p>
+    </div>
+        <div class="account-info-subcontainer">
+        <p class="account-info-title">Code postal :</p>
+        <p class="account-info-text">{{ app.user.postalCode }}</p>
+    </div>
+        <div class="account-info-subcontainer">
+        <p class="account-info-title">Pays :</p>
+        <p class="account-info-text">{{ app.user.country }}</p>
+    </div>
+        <div class="account-info-subcontainer">
+        <p class="account-info-title">Numéro de téléphone :</p>
+        <p class="account-info-text">{{ app.user.phoneNumber }}</p>
+    </div>
+</div>
+
+<div class="d-flex text-center justify-content-center gap-5">
+    <a class="btn btn-primary" href="{{ path('account_modify', {'id' : app.user.id}) }}">Modifier les informations de mon compte</a>
+    <a class="btn btn-primary" href="{{ path('app_forgot_password_request') }}">Modifier le mot de passe de mon compte</a>
+</div>
+
+
 {% endblock %}

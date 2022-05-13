@@ -20,7 +20,6 @@ class SearchController extends AbstractController
         $searchString = (explode('=', $request->getQueryString()))[1];
         $searchString = str_replace('%20', '-', $searchString);
         $searchString = strtolower($searchString);
-        $searchSplit = str_split($searchString);
 
         // premiere recherche de la chaine de caractère
         $search = $em->getRepository(Product::class)->createQueryBuilder('p')
@@ -29,10 +28,11 @@ class SearchController extends AbstractController
         ->getResult();
 
 
+        $searchSplit = str_split($searchString);
         $newsearch = [];
 
         // boucle qui permet de remplacer chaque lettre tour à tour par '_'
-        foreach($searchSplit as $key => $uniqueSearch) {
+        foreach($searchSplit as $key => $value) {
             $change = '_';
             $searchSplit[$key] = $change;
             $searchModified = implode('', $searchSplit);

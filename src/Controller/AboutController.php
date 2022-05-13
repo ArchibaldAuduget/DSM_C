@@ -33,4 +33,22 @@ class AboutController extends AbstractController
     {
         return $this->render('about/personal_data.html.twig');
     }
+
+    #[Route('/our-company', name: 'our_company')]
+    public function ourCompany()
+    {
+        return $this->render('about/our_company.html.twig');
+    }
+
+    #[Route('/our-team', name: 'our_team')]
+    public function ourTeam()
+    {
+        return $this->render('about/our_team.html.twig');
+    }
+
+    #[Route('/contact-us', name: 'contact_us')]
+    public function contactUs()
+    {
+        return $this->render('about/contact_us.html.twig');
+    }
 }
