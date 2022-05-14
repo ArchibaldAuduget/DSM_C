@@ -111,6 +111,10 @@
     text-align: center;
 }
 
+.workers-card:hover {
+    box-shadow: 7px 7px 21px black;
+}
+
 .workers-card-name {
     font-size: 2rem;
     font-weight: bold;
