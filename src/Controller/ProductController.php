@@ -83,4 +83,28 @@ class ProductController extends AbstractController
             'proposedProducts' => $proposedProducts
         ]);
     }
+
+    #[Route('/comment/remove/{id}', name: 'comment_remove')]
+    public function commentRemove($id, CommentRepository $commentRepository, EntityManagerInterface $em, ProductRepository $productRepository)
+    {
+        $comment = $commentRepository->findOneBy([
+            'id' => $id
+        ]);
+
+        if(!$this->getUser() || !$comment || ($this->getUser() !== $comment->getUser())) {
+            $this->addFlash("danger", "Une erreur s'est produite");
+            return $this->redirectToRoute('home');
+        }
+
+        $product = $comment->getProduct();
+
+        $em->remove($comment);
+        $em->flush();
+
+        $this->addFlash("success", "Le commentaire a bien été supprimé");
+        return $this->redirectToRoute('product', [
+            'catslug' => 'removecomment',
+            'slug' => $product->getSlug()
+        ]);
+    }
 }

@@ -136,6 +136,11 @@
         {% endif %}
         <p class="comment-date">Publié le {{ comment.postedAt | date('d/m/y H:i') }}</p>
         <p>{{ comment.content }}</p>
+        {% if app.user is not null %}
+            {% if app.user.id == comment.user.id %}
+                <a href="{{ path('comment_remove', {'id': comment.id}) }}" class="btn btn-danger">Supprimer</a>
+            {% endif %}
+        {% endif %}
         <div class="comment-trait mt-4 mb-4"></div>
     {% endfor %}
 
