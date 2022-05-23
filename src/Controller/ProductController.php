@@ -43,7 +43,7 @@ class ProductController extends AbstractController
             }
 
 
-            // algo de sécurisation si pb type injection sql
+            // algo de sécurisation
             $count = 0;
             foreach ($this->getUser()->getPurchases() as $purchase) {
                 foreach($purchase->getPurchaseItems() as $item) {

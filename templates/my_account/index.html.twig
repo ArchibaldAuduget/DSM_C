@@ -6,30 +6,36 @@
 
 {% block body %}
 
+{% for role in app.user.roles %}
+    {% if role == 'ROLE_ADMIN' %}
+    <div class="text-center"><a href="{{path('admin')}}" class="btn btn-success">Panneau Administrateur</a></div>       
+    {% endif %}
+{% endfor %}
+
 <h3 class="mt-4 mb-4 text-center">MES COMMANDES</h3>
 
 <div class="text-center mb-4">
-    <div class="text-center myaccount-show-btn">Voir &nbsp; <i class="fas fa-arrow-down"></i></div>
-    <div class="text-center myaccount-hide-btn hidden">Voir &nbsp; <i class="fas fa-arrow-up"></i></div>
+    <div class="text-center btn btn-success myaccount-show-btn">Voir &nbsp; <i class="fas fa-arrow-down"></i></div>
+    <div class="text-center btn btn-success myaccount-hide-btn hidden">Voir &nbsp; <i class="fas fa-arrow-up"></i></div>
 </div>
 
 <div>
-    <table class="table purchase-table hidden">
+    <table class="table table-striped table-bordered purchase-table hidden">
         <thead>
             <tr>
-                <th>Numéro</th>
-                <th>Adresse</th>
-                <th>Date de commande</th>
-                <th>Produits</th>
-                <th>Total</th>
+                <th class="purchase-table-resp2" scope="col">Numéro</th>
+                <th class="purchase-table-resp" scope="col">Adresse</th>
+                <th class="purchase-table-resp3" scope="col">Date de commande</th>
+                <th scope="col">Produits</th>
+                <th scope="col">Total</th>
             </tr>
         </thead>
         <tbody>
             {% for p in purchases %}
                 <tr>
-                    <td>{{ p.id }}</td>
-                    <td>{{ p.address }}<br>{{ p.postalCode }}, {{ p.city }}</td>
-                    <td>{{ p.purchasedAt | date('d/m/y H:i') }}</td>
+                    <td class="purchase-table-resp2">{{ p.id }}</td>
+                    <td class="purchase-table-resp">{{ p.address }}<br>{{ p.postalCode }}, {{ p.city }}</td>
+                    <td class="purchase-table-resp3">{{ p.purchasedAt | date('d/m/y H:i') }}</td>
                     <td>
                         <ul>
                             {% for item in p.purchaseItems %}

@@ -101,18 +101,26 @@
     font-family: 'Koulen', cursive;
 }
 
+@media (max-width: 780px) {
+
+    .home-free-deliv {
+        display: none;
+    }
+
+}
+
 .portrait {
     border-right: 1px solid black;
 }
 
 .workers-card {
     transition: all 0.2s ease 0s;
-    box-shadow: 2px 2px 12px black;
+    box-shadow: 1px 1px 6px black;
     text-align: center;
 }
 
 .workers-card:hover {
-    box-shadow: 7px 7px 21px black;
+    box-shadow: 4px 4px 16px black;
 }
 
 .workers-card-name {
@@ -238,22 +246,6 @@
     font-weight: bold;
 }
 
-.myaccount-show-btn {
-    cursor: pointer;
-    border: 1px solid black;
-    width: 6%;
-    margin-left: 47%;
-    border-radius: 8px;
-}
-
-.myaccount-hide-btn {
-    cursor: pointer;
-    border: 1px solid black;
-    width: 6%;
-    margin-left: 47%;
-    border-radius: 8px;
-}
-
 .hidden {
     display: none;
 }
@@ -264,6 +256,25 @@
         margin-left: 0%;
     }
 }
+
+@media (max-width: 500px) {
+    .purchase-table-resp {
+        display: none;
+    }
+}
+
+@media (max-width: 415px) {
+    .purchase-table-resp2 {
+        display: none;
+    }
+}
+
+@media (max-width: 415px) {
+    .purchase-table-resp3 {
+        display: none;
+    }
+}
+
 
 /* -------- OUR COMPANY -------- */
 

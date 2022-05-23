@@ -225,20 +225,89 @@
     font-size: 1.25rem;
 }
 
-@media (max-width: 1230px) {
+.about-resp {
+    gap: 3rem;
+}
+
+/* @media (max-width: 1230px) {
 
     .searchbar {
         width: 22rem;
     }
 }
 
-@media (max-width: 990px) {
+@media (max-width: 1230px) {
     .searchbar {
         width: 14rem;
     }
+} */
+
+@media (max-width: 1222px) {
+
+    .toggle-button {
+        display: flex;
+    }
+
+    .navbar-links {
+        width: 100%;
+        display: none;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-links ul {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .navbar-links li {
+        text-align: center;
+    }
+
+    .navbar-links li a {
+        padding: .5rem 1rem;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .searchbar {
+        width: 52rem;
+    }
+
+    .search-button {
+        margin-top: 0.3rem;
+    }
+
+    .search-container {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .footer-subcontainer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-resp {
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .about-close {
+        display: none;
+    }
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1000px) {
+
     .cat-toggle-button {
         display: flex;
     }
@@ -276,50 +345,50 @@
     .ctb-container:hover {
         cursor: pointer;
     }
-}
-
-@media (max-width: 843px) {
-    .toggle-button {
-        display: flex;
-    }
-    .navbar-links {
-        width: 100%;
-        display: none;
-    }
-
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .navbar-links ul {
-        width: 100%;
-        flex-direction: column;
-    }
-
-    .navbar-links li {
-        text-align: center;
-    }
-
-    navbar-links li a {
-        padding: .5rem 1rem;
-    }
-
-    .navbar-links.active {
-        display: flex;
-    }
 
     .searchbar {
-        width: 26rem;
+        width: 42rem;
+    }
+    
+}
+
+@media (max-width: 800px) {
+
+    .searchbar {
+        width: 27rem;
     }
 
-    .search-button {
-        margin-top: 0.3rem;
+}
+
+
+@media (max-width: 600px) {
+
+    .searchbar {
+        width: 21rem;
     }
 
-    .search-container {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
+}
+
+@media (max-width: 444px) {
+
+    .searchbar {
+        width: 18rem;
     }
+
+}
+
+@media (max-width: 392px) {
+
+    .searchbar {
+        width: 15rem;
+    }
+
+}
+
+@media (max-width: 290px) {
+
+    .searchbar {
+        width: 13rem;
+    }
+
 }

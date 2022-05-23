@@ -3,11 +3,22 @@
 {% block title %}Votre panier{% endblock %}
 
 {% block body %}
-    <h1>Votre panier</h1>
+    <h1 class="text-center mt-5 mb-5">VOTRE PANIER</h1>
+
+    <table class="table">
+    <thead>
+        <tr>
+            <th>Produit</th>
+            <th>Prix</th>
+            <th>Quantité</th>
+            <th>Total</th>
+            <th></th>
+        </tr>
+    </thead>
 
     {% if items | length > 0 %}
 
-        <table class="table">
+        {# <table class="table">
             <thead>
                 <tr>
                     <th>Produit</th>
@@ -16,7 +27,7 @@
                     <th>Total</th>
                     <th></th>
                 </tr>
-            </thead>
+            </thead> #}
             <tbody>
                 {% for item in items %}
                     <tr>
@@ -57,11 +68,41 @@
             {{ form_end(formview) }}
 
         {% else %}
-            <h2>Vous devez être connecté pour confirmer votre commande</h2>
-            <a href="{{ path('app_login') }}" class="btn btn-success">Connexion</a> ou 
-            <a href="{{ path('app_register') }}" class="btn btn-success">Créer un compte</a>
+            <h3 class="text-center">Vous devez être connecté pour confirmer votre commande</h3>
+            <div class="text-center">
+            <a href="{{ path('app_login') }}" class="btn btn-success mt-2 mb-2 text-center">Connexion</a> &nbsp; 
+            <a href="{{ path('app_register') }}" class="btn btn-success text-center">Créer un compte</a>
+            </div>
         {% endif %}
     {% else %}
-        <h2>Le panier est vide !</h2>
+    </table>
+        <h3 class="text-center mt-2 mb-5">Le panier est vide !</h3>
     {% endif %}
+    <div class="row mt-2">
+        <div class="col-12 col-md-4 col-lg-4 mt-2 mb-2">
+            <div class="card bg-primary text-white text-center">
+                <div class="card-body">
+                    <i class="fas fa-truck"></i>
+                    <p class="card-text">Livraisons gratuites !</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-4 mt-2 mb-2">
+            <div class="card bg-success text-white text-center">
+                <div class="card-body">
+                    <i class="fas fa-check"></i>
+                    <p class="card-text">Produits de qualité !</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 col-lg-4 mt-2 mb-2">
+            <div class="card bg-info text-white text-center">
+                <div class="card-body">
+                    <i class="fas fa-lock"></i>
+                    <p class="card-text">Paiement securisé !</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
